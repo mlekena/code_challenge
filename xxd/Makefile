@@ -25,7 +25,7 @@ endef
 export PRINT_HELP_PYSCRIPT
 
 BROWSER := python -c "$$BROWSER_PYSCRIPT"
-INSTALL_LOCATION := ~/.local
+INSTALL_LOCATION := ~/bin# ~/.local
 
 help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
@@ -61,3 +61,9 @@ format: ## format the project sources
 	rm -rf build/
 	cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$(INSTALL_LOCATION)
 	cmake --build build --target clang-format
+
+run: 
+	rm -rf build/
+	cmake -Bbuild
+	cmake --build build --config Debug
+	./build/bin/Debug/xxd

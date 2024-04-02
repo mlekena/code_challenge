@@ -9,6 +9,7 @@ set(exe_sources
 
 set(headers
     include/project/tmp.hpp
+    include/xxd/xxd.hpp
 )
 
 set(test_sources
